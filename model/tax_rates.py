@@ -7,7 +7,7 @@ from attr import dataclass
 
 
 @dataclass
-class TaxBracket():
+class TaxBracket:
     # A tax bracket can look like this:
     # For taxable income in the range
     # $45,001 – $120,000
@@ -35,7 +35,7 @@ historical_tax_rates: dict[str, list[TaxBracket]] = {
         TaxBracket(max_income=180000, base_amount=29467, cents_per_dollar=37, over_amount=120000),
         TaxBracket(max_income=None, base_amount=51667, cents_per_dollar=45, over_amount=180000)
     ],
-    '2021-2022': [  # NB: this is the same as 2020-2021 but I'm leaving them here as its explicit
+    '2021-2022': [  # NB: this is the same as 2020-2021, but I'm leaving them here as it is explicit
         TaxBracket(max_income=18200, base_amount=0, cents_per_dollar=0.0, over_amount=0),
         TaxBracket(max_income=45000, base_amount=0, cents_per_dollar=19, over_amount=18200),
         TaxBracket(max_income=120000, base_amount=5092, cents_per_dollar=32.5, over_amount=45000),

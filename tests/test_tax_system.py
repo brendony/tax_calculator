@@ -33,15 +33,15 @@ class TestTaxSystem(unittest.TestCase):
            ))
     def test_values(self, income, fy):
         # Apologies, I'm just going to reimplement things here, which is obviously not ideal
-        expectedValue = 0 if income < 18200 else \
-            0.19 * (income - 18200) if income < 45000 else \
-                5092 + 0.3 * (income - 45000) if income < 120000 else \
-                    29467 + 0.37 * (income - 120000) if income < 180000 else \
-                        51667 + 0.45 * (income - 180000)
+        expected_value = 0 if income < 18200 \
+            else 0.19 * (income - 18200) if income < 45000 \
+            else 5092 + 0.3 * (income - 45000) if income < 120000 \
+            else 29467 + 0.37 * (income - 120000) if income < 180000 \
+            else 51667 + 0.45 * (income - 180000)
 
         self.assertEqual(
             TaxSystem.calculate_tax(fy, income),
-            expectedValue
+            expected_value
         )
 
 
