@@ -2,6 +2,7 @@ import locale
 from textual import on
 from textual.app import App, ComposeResult
 from textual.widgets import Header, Select, Input, Button, Label
+from textual.containers import HorizontalGroup
 
 from controller.tax_system import TaxSystem
 from model.tax_rates import getSupportedFinancialYears
@@ -10,8 +11,17 @@ from model.tax_rates import getSupportedFinancialYears
 class TaxCalculator(App):
     def compose(self) -> ComposeResult:
         yield Header()
-        yield Select(id="fy", options=[(fy, fy) for fy in getSupportedFinancialYears()])
-        yield Input(placeholder="Enter your income", type="integer", id="income")
+        yield Label(
+            "Please select the financial year and enter your income for that year."
+        )
+        yield Select(
+            id="fy",
+            options=[(fy, fy) for fy in getSupportedFinancialYears()],
+            prompt="Select FY",
+        )
+        with HorizontalGroup():
+            yield Label("$")
+            yield Input(placeholder="Enter your income", type="integer", id="income")
         yield Button("Calculate tax", id="calculate", disabled=True)
         yield Label("", id="tax")
 
@@ -35,7 +45,9 @@ class TaxCalculator(App):
         fy = self.query_one(Select).value
         income = int(self.query_one(Input).value)
         tax = TaxSystem.calculate_tax(fy, income)
-        self.query_one("#tax", Label).update(locale.currency(tax, grouping=True))
+        self.query_one("#tax", Label).update(
+            f"The estimated tax on your taxable income is: {locale.currency(tax, grouping=True)}"
+        )
 
 
 if __name__ == "__main__":
