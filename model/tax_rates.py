@@ -45,3 +45,7 @@ historical_tax_rates: dict[str, list[TaxBracket]] = {
                    over_amount=180000)
     ]
 }
+
+
+def getSupportedFinancialYears():
+    return historical_tax_rates.keys()
