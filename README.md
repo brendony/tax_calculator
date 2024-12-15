@@ -28,16 +28,16 @@ This was developed using Python 3.11. I haven't tested it on other versions of P
 
 ## Goals
 
-- [ ] Cater for 2021-22 and 2020-2021 tax years
-- [ ] Implement ATO tax rates and how they work.
-- [ ] At least choose a year and an income, report tax estimate
+- [x] Cater for 2021-22 and 2020-2021 tax years
+- [x] Implement ATO tax rates and how they work.
+- [x] At least choose a year and an income, report tax estimate
 
 Stretch goals:
 
 - [ ] Maybe report tax rates per FY in a table?
-- [ ] Maybe a more involved GUI?
-- [ ] Deployment: Can we serve this online
-- [ ] Do we want to serve this using Docker etc?
+- [x] Maybe a more involved GUI?
+- [x] Deployment: Can we serve this online
+- [x] Do we want to serve this using Docker etc?
 - [ ] Do we care about scalability?
 
 ## Considerations
