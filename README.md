@@ -26,6 +26,8 @@ This was developed using Python 3.11. I haven't tested it on other versions of P
 1. `docker run --rm -it -p 8000:8000 $(docker build -q .)`
 2. Connect using a browser at http://localhost:8000
 
+![Running Tax Calculator in docker](image-1.png)
+
 ## Goals
 
 - [x] Cater for 2021-22 and 2020-2021 tax years
