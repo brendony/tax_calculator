@@ -28,7 +28,7 @@ class TaxCalculator(App):
     @on(Select.Changed)
     def on_select(self, event: Select.Changed) -> None:
         self.query_one("#tax", Label).update("")
-        if event.value and self.query_one("#income", Input).value:
+        if event.value != Select.BLANK and self.query_one("#income", Input).value:
             self.query_one("#calculate", Button).disabled = False
         else:
             self.query_one("#calculate", Button).disabled = True
